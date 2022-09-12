@@ -1,0 +1,21 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #7395AE;
+    margin-bottom: 1%;
+}
+
+.nav-links {
+    font-size: 16pt;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-links:hover {
+    color: white;
+}
+
+.nav-links:active {
+    text-decoration: underline;
+}
