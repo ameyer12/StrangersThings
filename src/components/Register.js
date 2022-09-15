@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import FilledInput from '@mui/material/FilledInput';
 import Button from '@mui/material/Button';
 import "./Register.css";
-
+import swal from "sweetalert";
 
 
 const Register = ({ setToken, navigate }) => {
@@ -19,7 +19,7 @@ const Register = ({ setToken, navigate }) => {
             navigate('/profile')
             
         } else {
-            alert("User already exists. Please login instead.")
+            swal("User already exists!", "Please login instead.")
         }
     }
     return (

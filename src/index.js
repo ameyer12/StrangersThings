@@ -30,6 +30,7 @@ const App = () => {
     function logout() {
         window.localStorage.removeItem('token'); 
         setToken('');
+        window.reload()
     }
 
 
@@ -72,11 +73,11 @@ const App = () => {
             <Route path="/register" element={<Register 
             setToken={ setToken } 
             navigate={ navigate }/>} />
-            <Route path="/posts" element={<Posts posts={ posts }/>} />
+            <Route path="/posts" element={<Posts posts={ posts } fetchPosts={ fetchPosts } />} />
             <Route exact path="/posts/edit-post/:id" element={<EditPost token={ token } fetchPosts={ fetchPosts } posts={ posts } navigate={ navigate }/>} />
             <Route path="/posts/:id" element={<SinglePost posts={ posts }
-            token={ token } navigate={ navigate } />} />
-            <Route path="/profile" element={<Profile user={ user } />} />
+            token={ token } navigate={ navigate } getMe={ getMe } />} />
+            <Route path="/profile" element={<Profile user={ user } getMe={ getMe } navigate={ navigate } />} />
             <Route path="/login" element={<Login  setToken={ setToken } 
             navigate={ navigate }/>} />
             <Route path="/createpost" element={<Createpost  fetchPosts={ fetchPosts } navigate={ navigate } />} />

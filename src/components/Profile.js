@@ -1,14 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Paper } from "@mui/material";
 import './profile.css'
 
-const Profile = ( { user } ) => {
+
+const Profile = ( { user, getMe } ) => {
+
     const { username } = user;
     const messages = user.messages;
     const userID = user._id;
 
+    useEffect(() => {
+      getMe()
+    }, [user])
+    
     return (
-        <div>
+
+        <div
+          style={{
+            marginBottom:"1rem",
+            marginLeft:"5rem",
+            marginRight:"5rem",
+            paddingBottom:"0.01rem",
+          }}
+        >
             <h1 className="welcome-message">Welcome {username}</h1>
             <h2>Received Messages:</h2>
             {

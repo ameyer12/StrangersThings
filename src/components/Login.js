@@ -3,6 +3,7 @@ import { loginUser } from '../api'
 import FilledInput from '@mui/material/FilledInput';
 import Button from '@mui/material/Button'
 import './Login.css'
+import swal from 'sweetalert';
 
 const Login = ({ setToken, navigate }) => {
 
@@ -16,7 +17,7 @@ const Login = ({ setToken, navigate }) => {
             window.localStorage.setItem('token', results.data.token)
             navigate('/profile')
         } else {
-            alert("Invalid login credentials. Please try again or create an account.")
+            swal("Invalid login credentials!", "Please try again or create an account.")
         }
     }
 

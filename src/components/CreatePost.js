@@ -6,6 +6,7 @@ import "./createpost.css";
 import { createPost} from '../api';
 import Checkbox from '@mui/material/Checkbox';
 import { FormControlLabel } from '@mui/material';
+import swal from 'sweetalert';
 
 
  
@@ -20,13 +21,13 @@ const token = window.localStorage.token
   const [willDeliver, setWillDeliver] = useState(false);
 
   const handleCreate = async() => {
-    try{
-      const results = await createPost(token, title, description, price, location, willDeliver);
-      fetchPosts();
-      navigate('/posts')
-    } catch (error) {
-      console.log("this is an error message")
-    }
+    const results = await createPost(token, title, description, price, location, willDeliver);
+      if(results.success){
+        fetchPosts();
+        navigate('/posts')
+      } else {
+        swal("Please register or login to create a post!")
+      }
   }
 
   return (

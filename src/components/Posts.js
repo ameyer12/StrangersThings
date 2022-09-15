@@ -1,38 +1,32 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Paper, Button } from "@mui/material";
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Createpost from "./CreatePost";
-import SinglePost from "./SinglePost";
 import { deletePost } from '../api';
-import { useNavigate } from 'react-router-dom';
 import "./posts.css"
-
-
-const postMatches = (post, searchTerm, setPosts) => {
-    const searchTermLower = searchTerm.toLowerCase();
-    const {
-      description,
-      location,
-      title,
-      author: { username },
-    } = post;
-  
-    const toMatch = [description, location, title, username];
-  
-    for (let i = 0; i < toMatch.length; i++) {
-      const field = toMatch[i];
-      if (field.toLowerCase().includes(searchTermLower)) {
-        return true;
-      }
-    }
-  };
-
+import { padding } from "@mui/system";
+      
 const Post = ({ posts, token, fetchPosts }) => {
 
-    const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-    const postsToDisplay = posts.filter((post) => postMatches(post, searchTerm));
+  function postMatches(post, string) {
+            const { title, description } = post;
+            if (
+              title.toLowerCase().includes(string.toLowerCase()) ||
+              description.toLowerCase().includes(string.toLowerCase())
+            ) {
+              return post;
+            }
+          }
+        const filteredPosts = posts.filter((post) => postMatches(post, searchTerm));
+        
+        const postsToDisplay = posts.filter((post) => postMatches(post, searchTerm));
+
+    useEffect(() => {
+      fetchPosts()
+    }, [posts]) 
+
 
     return (
         <div>
@@ -60,7 +54,13 @@ const Post = ({ posts, token, fetchPosts }) => {
               const { description, location, price, title, _id, isAuthor } = post
               return(
               <Paper
-                  style={{margin:"1rem"}}
+                  style={{
+                    marginBottom:"1rem",
+                    marginLeft:"5rem",
+                    marginRight:"5rem",
+                    paddingBottom:"0.01rem",
+            
+                }}
                   elevation={5}
                   key={_id}
               >
