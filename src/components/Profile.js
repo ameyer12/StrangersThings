@@ -9,6 +9,8 @@ const Profile = ( { user, getMe } ) => {
     const messages = user.messages;
     const userID = user._id;
 
+    console.log(user)
+
     useEffect(() => {
       getMe()
     }, [user])
@@ -51,6 +53,7 @@ const Profile = ( { user, getMe } ) => {
           {
             messages && messages.map(message => {
               const fromUserID = message.fromUser._id;
+              const {title} = message.post;
               
               if (userID === fromUserID) {
                 return (
@@ -58,7 +61,11 @@ const Profile = ( { user, getMe } ) => {
                   style={{margin:"0.5rem"}}
                   elevation= {3}
                   >
-                  <div key={message._id}>{message.content}</div>
+                  <div key={message._id}>
+                    <p>Message: {message.content}</p>
+                    <p>Post Reference: {title}</p>
+                  
+                  </div>
                   </Paper>
                 )
               }
