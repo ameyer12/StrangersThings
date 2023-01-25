@@ -25,8 +25,6 @@ const App = () => {
 
     const navigate = useNavigate();
 
-    // console.log(token)
-
     function logout() {
         window.localStorage.removeItem('token'); 
         setToken('');

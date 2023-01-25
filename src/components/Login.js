@@ -32,18 +32,21 @@ const Login = ({ setToken, navigate }) => {
         <FilledInput 
         type="text"
         placeholder="Enter Username"
+        className='login-input'
         style={{height:"2.5rem", width:"25rem"}}
         onChange={(event) => setUsername(event.target.value)}
         />
         <FilledInput
         type="password"
         placeholder="Enter Password"
+        className='login-input'
         style={{height:"2.5rem", width:"25rem"}}
         onChange={(event) => setPassword(event.target.value)}
         />
         <Button 
         type="submit"
         variant="outlined"
+        className='login-submit-button'
         style={{height:"2.5rem", width:"25rem"}}
         >Submit</Button>
     </form>

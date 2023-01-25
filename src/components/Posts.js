@@ -37,17 +37,19 @@ const Post = ({ posts, token, fetchPosts }) => {
             >
             <Link className="create-post-link" to="/createpost" element={<Createpost />}>Create Post</Link>
             </Button>
-            <input 
-              type="text" 
-              className="search-bar"
-              placeholder="Search Posts"
-              value={searchTerm}
-              onChange={(event) => {
-                setSearchTerm(event.target.value)}}
-            ></input>
-            <Button
-                variant="outlined"
-            >Search</Button>
+            <div>
+              <input 
+                type="text" 
+                className="search-bar"
+                placeholder="Search Posts"
+                value={searchTerm}
+                onChange={(event) => {
+                  setSearchTerm(event.target.value)}}
+              ></input>
+              <Button
+                  variant="outlined"
+              >Search</Button>
+            </div>
           </div>
         {
           postsToDisplay.map((post) => {
@@ -59,16 +61,17 @@ const Post = ({ posts, token, fetchPosts }) => {
                     marginLeft:"5rem",
                     marginRight:"5rem",
                     paddingBottom:"0.01rem",
+                    borderRadius:"10px"
             
                 }}
                   elevation={5}
                   key={_id}
               >
               <Fragment>
-                <h3>{title}</h3>
-                <p>Description: {description}</p>
-                <p>Price: {price}</p>
-                <p>Location: {location}</p>
+                <h3 className="post-title">{title}</h3>
+                <p className="post-description">Description: {description}</p>
+                <p className="post-price">Price: {price}</p>
+                <p className="post-location">Location: {location}</p>
                 {
                             isAuthor ? (
                                 <Button
@@ -82,6 +85,7 @@ const Post = ({ posts, token, fetchPosts }) => {
                             ) : (
                                 <Button
                                 variant="outlined"
+                                className="view-button"
                                 >
                                 <Link className="view-link" to={`/posts/${_id}`}>View</Link>
                                 </Button>

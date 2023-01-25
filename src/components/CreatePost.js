@@ -31,63 +31,70 @@ const token = window.localStorage.token
   }
 
   return (
-    <Box  
-    component="form"
-    sx={{
-      '& .MuiTextField-root': { m: 1, width: '25ch' },
-    }}
-    noValidate
-    autoComplete="off"
-    onSubmit={(event) => {
-        event.preventDefault();
-        handleCreate();
-    }}
-    >
-    <div className='create-post-form'>
-        <h1>Create Post</h1>
-        <TextField
-            style={{width:"30rem"}}
-            required
-            label="Title"
-            onChange={(event) => setTitle(event.target.value)}
-        />
-        <TextField
-            style={{width:"30rem"}}
-            required
-            label="Description"
-            onChange={(event) => setDescription(event.target.value)}
-        />
-        <TextField
-            style={{width:"30rem"}}
-            required
-            label="Price"
-            onChange={(event) => setPrice(event.target.value)}
-        />
-        <TextField
-            style={{width:"30rem"}}
-            required
-            label="Location"
-            onChange={(event) => setLocation(event.target.value)}
-        />
-        <FormControlLabel
-        label="Will you deliver?"
-        control={<Checkbox onClick={(event) => {
-          if(willDeliver === true) {
-            setWillDeliver(false)
-          } else {
-            setWillDeliver(true)
+      <div className='create-post-form-container'>
+      <Box  
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+      onSubmit={(event) => {
+          event.preventDefault();
+          handleCreate();
+      }}
+      >
+      <div className='create-post-form'>
+          <h1>Create Post</h1>
+          <TextField
+              style={{width:"30rem"}}
+              required
+              label="Title"
+              className='create-post-input'
+              onChange={(event) => setTitle(event.target.value)}
+          />
+          <TextField
+              style={{width:"30rem"}}
+              required
+              label="Description"
+              className='create-post-input'
+              onChange={(event) => setDescription(event.target.value)}
+          />
+          <TextField
+              style={{width:"30rem"}}
+              required
+              label="Price"
+              className='create-post-input'
+              onChange={(event) => setPrice(event.target.value)}
+          />
+          <TextField
+              style={{width:"30rem"}}
+              required
+              label="Location"
+              className='create-post-input'
+              onChange={(event) => setLocation(event.target.value)}
+          />
+          <FormControlLabel
+          label="Will you deliver?"
+          control={<Checkbox onClick={(event) => {
+            if(willDeliver === true) {
+              setWillDeliver(false)
+            } else {
+              setWillDeliver(true)
+              }
             }
           }
-        }
-        />}
-      />
-        <Button
-        type="submit"
-        variant="outlined"
-        style={{width:"30rem"}}
-        >Create</Button>
-    </div>
-    </Box>
+          />}
+        />
+          <Button
+          type="submit"
+          variant="outlined"
+          style={{width:"30rem"}}
+          className='create-post-input'
+          >Create</Button>
+      </div>
+      </Box>
+      </div>
   )
 }
 

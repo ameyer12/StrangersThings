@@ -4,3 +4,23 @@
     align-items: center;
     margin-top: 2rem;
 }
+
+
+.register-input {
+    background-color: white !important;
+}
+
+@media screen and (max-width: 400px){
+    .register-form {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .register-input {
+        width: 100% !important;
+    }
+
+    .register-submit-button {
+        width: 100% !important;
+    }
+}

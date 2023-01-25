@@ -9,14 +9,12 @@ const Profile = ( { user, getMe } ) => {
     const messages = user.messages;
     const userID = user._id;
 
-    console.log(user)
 
     useEffect(() => {
       getMe()
     }, [user])
     
     return (
-
         <div
           style={{
             marginBottom:"1rem",
@@ -26,7 +24,7 @@ const Profile = ( { user, getMe } ) => {
           }}
         >
             <h1 className="welcome-message">Welcome {username}</h1>
-            <h2>Received Messages:</h2>
+            <h2 className="received-messages-h2">Received Messages:</h2>
             {
             messages && messages.map(message => {
               const fromUserID = message.fromUser._id;
@@ -49,7 +47,7 @@ const Profile = ( { user, getMe } ) => {
               }
             })    
           }
-          <h2>Sent Messages:</h2>
+          <h2 className="sent-messages-h2">Sent Messages:</h2>
           {
             messages && messages.map(message => {
               const fromUserID = message.fromUser._id;

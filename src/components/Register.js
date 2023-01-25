@@ -32,17 +32,19 @@ const Register = ({ setToken, navigate }) => {
             <FilledInput
             type="text"
             placeholder="Enter Username"
+            className="register-input"
             style={{height:"2.5rem", width:"25rem"}}
             onChange={(event) => setUsername(event.target.value)}
             />
             <FilledInput 
             type="password"
             placeholder="Enter Password"
+            className="register-input"
             style={{height:"2.5rem", width:"25rem"}}
             onChange={(event) => setPassword(event.target.value)}
             />
             <Button 
-            id="regiser-button"
+            className="register-submit-button"
             type="submit"
             variant="outlined"
             style={{height:"2.5rem", width:"25rem"}}

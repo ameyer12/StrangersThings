@@ -4,3 +4,22 @@
     align-items: center;
     margin-top: 2rem;
 }
+
+.login-input {
+    background-color: white !important;
+}
+
+@media screen and (max-width: 400px){
+    .login-form {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .login-input {
+        width: 100% !important;
+    }
+
+    .login-submit-button {
+        width: 100% !important;
+    }
+}

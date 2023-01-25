@@ -48,11 +48,11 @@ const SinglePost = ({ posts, token }) => {
     elevation= {5}
     >
     <div>
-      <h3>{title}</h3>
-      <p>Description: {description}</p>
-      <p>Price: {price}</p>
-      <p>Location: {location}</p>
-      <p>Will Deliver: {willDeliver == true ? "Yes" : "No"}</p>
+      <h3 className="post-title">{title}</h3>
+      <p className="post-description">Description: {description}</p>
+      <p className="post-price">Price: {price}</p>
+      <p className="post-location">Location: {location}</p>
+      <p className="post-will-deliver">Will Deliver: {willDeliver == true ? "Yes" : "No"}</p>
     </div>
     <Button onClick={() => setActivateMessage(!activateMessage)}>Message this user</Button>
       {
